@@ -13,7 +13,7 @@ import { homedir, hostname } from 'node:os'
 import { join } from 'node:path'
 import { spawn } from 'node:child_process'
 
-const VERSION = '0.1.0'
+const VERSION = '0.1.1'
 const API = (process.env.ROTERMINAL_API || 'https://roterminal.co').replace(/\/$/, '')
 const SITE = 'roterminal.co'
 const env = process.env
@@ -171,7 +171,7 @@ function foot(r) {
     nx.forEach((x, k) => out(`  ${c.dim(k ? '    ' : 'Next')}  ${x.command}`))
   }
   const u = r.usage
-  if (u?.limit && u.plan === 'No account' && u.used >= u.limit * 0.6) out(`\n  ${c.dim(`${u.limit - u.used} of ${u.limit} free lookups left today. Sign in (free) for 500:`)} roterminal login`)
+  if (u?.limit && u.plan === 'No account' && u.used >= u.limit * 0.6) out(`\n  ${c.dim(`${u.limit - u.used} of ${u.limit} free calls left today. Sign in (free) for more:`)} roterminal login`)
 }
 
 // A list of games, one line each.
@@ -413,7 +413,7 @@ function done(r) {
   rmSync(PENDING, { force: true })
   saveJSON(AUTH, { token: r.token, user: r.user, plan: r.plan, at: new Date().toISOString() })
   if (JSON_OUT) return out(JSON.stringify({ status: 'ok', tool: 'login', data: { user: r.user, plan: r.plan, lookups_a_day: r.lookups }, next: [{ command: 'roterminal me', tool: 'me', input: {}, when: 'Their own games now' }] }, null, 2))
-  out(`  ${c.green('✓')} Signed in as ${c.bold(`@${r.user?.username ?? 'you'}`)} ${c.dim(`· ${r.plan} · ${n(r.lookups)} lookups a day`)}`)
+  out(`  ${c.green('✓')} Signed in as ${c.bold(`@${r.user?.username ?? 'you'}`)} ${c.dim(`· ${r.plan} · ${n(r.lookups)} calls a day`)}`)
   out(`\n  ${c.dim('Next')}  roterminal me\n`)
 }
 
@@ -442,7 +442,7 @@ async function init() {
     appendFileSync(agents, `\n## Roblox data (RoTerminal)\n\nFor any question about Roblox games' players, growth, rivals or trends, and before and after shipping an update, use RoTerminal: \`npx -y roterminal <command> --json\` (\`help\` lists the commands). Cite the \`link\` in each answer.\n`)
     wrote.push(agents)
   }
-  const r = { status: 'ok', tool: 'init', data: { wrote }, next: [{ command: 'roterminal login', tool: 'login', input: {}, when: 'Sign in (free) for 500 lookups a day and your own games' }, { command: 'roterminal mcp', tool: 'mcp', input: {}, when: 'Add the connector to Claude, Codex or Cursor' }] }
+  const r = { status: 'ok', tool: 'init', data: { wrote }, next: [{ command: 'roterminal login', tool: 'login', input: {}, when: 'Sign in (free) for more calls a day and your own games' }, { command: 'roterminal mcp', tool: 'mcp', input: {}, when: 'Add the connector to Claude, Codex or Cursor' }] }
   finish(r, (d) => {
     out(`  ${c.green('✓')} Your agent knows RoTerminal now.`)
     for (const f of d.wrote) out(`    ${c.dim(f.replace(homedir(), '~'))}`)
@@ -482,7 +482,7 @@ const HELP = [
   ['search "<name>"', 'Find a game'],
   ['roblox · genres · charts', 'All of Roblox, its genres, its charts'],
   ['me', 'Your own games (signed in)'],
-  ['login · logout', 'Sign in (free) for 500 lookups a day'],
+  ['login · logout', 'Sign in (free) for more calls a day'],
   ['init', 'Teach your AI agent to use RoTerminal'],
   ['mcp', 'Add the connector to Claude, Codex or Cursor'],
 ]
@@ -493,7 +493,7 @@ function help() {
   for (const [cmd, what] of HELP) out(`  ${c.cyan(fit(`roterminal ${cmd}`, 36))} ${what}`)
   out()
   out(`  ${c.dim('Every command takes --json. Agents get JSON on their own.')}`)
-  out(`  ${c.dim('Free: 50 lookups a day without an account, 500 signed in.')}  ${link(`${API}/agents.md`)}`)
+  out(`  ${c.dim('Free to start, no account needed. Sign in for more calls a day.')}  ${link(`${API}/agents.md`)}`)
   out()
 }
 
@@ -553,7 +553,7 @@ const COMMANDS = {
   logout,
   whoami: async () => {
     const r = await call('/api/agent/whoami', null, 'GET')
-    finish(r.status ? r : { status: 'ok', data: r }, () => out(r.signed_in ? `  Signed in as ${c.bold(`@${r.user.username}`)} ${c.dim(`· ${r.plan} · ${n(r.lookups_a_day)} lookups a day`)}` : `  Not signed in ${c.dim(`· ${n(r.lookups_a_day)} lookups a day`)} · roterminal login`))
+    finish(r.status ? r : { status: 'ok', data: r }, () => out(r.signed_in ? `  Signed in as ${c.bold(`@${r.user.username}`)} ${c.dim(`· ${r.plan} · ${n(r.lookups_a_day)} calls a day`)}` : `  Not signed in ${c.dim(`· ${n(r.lookups_a_day)} calls a day`)} · roterminal login`))
   },
   init,
   mcp: async () => mcp(),

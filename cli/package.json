@@ -1,6 +1,6 @@
 {
   "name": "roterminal",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Live Roblox game data in your terminal and your AI agent: players now, rising games, trends, studios.",
   "type": "module",
   "bin": {

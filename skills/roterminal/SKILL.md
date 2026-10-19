@@ -42,4 +42,4 @@ Games can be named by name or universe id.
 - Cite `link` when you use the numbers.
 - On `status: action_required`, show the person `message` and `verification_uri`, wait for them, then run the same command again.
 - `next` suggests what to run next.
-- Without an account an address gets 50 lookups a day. `npx -y roterminal login` (free) gives 500.
+- Without an account an address gets 50 calls a day. `npx -y roterminal login` (free) gives 200.

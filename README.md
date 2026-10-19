@@ -47,6 +47,6 @@ Every command, tool and reply format: [roterminal.co/agents.md](https://rotermin
 
 ## Limits
 
-Without an account an address gets 50 lookups a day. Signing in (free, `npx roterminal login`) gives 500, and paid plans more. Every answer links back to its page on roterminal.co.
+Without an account an address gets 50 calls a day. Signing in (free, `npx roterminal login`) gives 200, and paid plans more (up to 5,000 a day per seat). Every answer links back to its page on roterminal.co.
 
 RoTerminal isn't affiliated with Roblox Corporation.
