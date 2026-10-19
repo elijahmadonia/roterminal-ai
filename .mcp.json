@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "roterminal": {
+      "type": "http",
+      "url": "https://roterminal.co/mcp"
+    }
+  }
+}

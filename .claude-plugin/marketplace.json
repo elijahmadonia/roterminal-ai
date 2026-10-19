@@ -1,0 +1,21 @@
+{
+  "name": "roterminal",
+  "owner": {
+    "name": "RoTerminal",
+    "url": "https://roterminal.co"
+  },
+  "description": "RoTerminal for Claude Code: live data on every Roblox game.",
+  "plugins": [
+    {
+      "name": "roterminal",
+      "source": "./",
+      "description": "Live data on every Roblox game: players now, history, rising games, trends and studios.",
+      "category": "data",
+      "tags": [
+        "roblox",
+        "analytics",
+        "game-data"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "roterminal",
+  "version": "0.1.0",
+  "description": "Live data on every Roblox game: players now, history, rising games, trends and studios.",
+  "mcpServers": {
+    "roterminal": {
+      "httpUrl": "https://roterminal.co/mcp"
+    }
+  },
+  "contextFileName": "GEMINI.md"
+}

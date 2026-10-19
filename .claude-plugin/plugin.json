@@ -1,0 +1,25 @@
+{
+  "name": "roterminal",
+  "displayName": "RoTerminal",
+  "version": "0.1.0",
+  "description": "Live data on every Roblox game: players now, history, rising games, trends and studios.",
+  "author": {
+    "name": "RoTerminal",
+    "url": "https://roterminal.co"
+  },
+  "homepage": "https://roterminal.co/agents.md",
+  "repository": "https://github.com/elijahmadonia/roterminal-ai",
+  "license": "MIT",
+  "keywords": [
+    "roblox",
+    "game-data",
+    "analytics",
+    "trends",
+    "mcp"
+  ],
+  "icon": "./icon.png",
+  "documentationUrl": "https://roterminal.co/agents.md",
+  "supportUrl": "https://github.com/elijahmadonia/roterminal-ai/issues",
+  "privacyPolicyUrl": "https://roterminal.co/privacy",
+  "termsOfServiceUrl": "https://roterminal.co/terms"
+}
