@@ -23,7 +23,7 @@ Run npx roterminal. What Roblox games are trending right now?
 
 ## New in 0.2.0
 
-- One line adds RoTerminal to every AI app on your computer: `npx -y https://roterminal.co/roterminal.tgz setup`
+- One line adds RoTerminal to every AI app on your computer: `npx -y roterminal setup`
 - In Claude and ChatGPT, a game, a list or players over time show as RoTerminal's own card in the chat.
 - Signed in, your AI can read your alerts, follow games and studios, and draft a post, listing or offer that you finish in RoTerminal.
 - Webhooks send your alerts to your own server or a Discord channel: Settings → Developer → Webhooks on roterminal.co.
@@ -33,7 +33,7 @@ Run npx roterminal. What Roblox games are trending right now?
 
 | Where | How |
 |---|---|
-| **Every AI app on your computer** | `npx -y https://roterminal.co/roterminal.tgz setup` |
+| **Every AI app on your computer** | `npx -y roterminal setup` |
 | **Claude Code** (plugin: skill + connector) | `/plugin marketplace add elijahmadonia/roterminal-ai` then `/plugin install roterminal@roterminal` |
 | **Claude** (web, desktop, phone) | Customize → Connectors → Add custom connector → `https://roterminal.co/mcp`, and pick "Sign in when needed" |
 | **Any coding agent** (skill) | `npx skills add elijahmadonia/roterminal-ai` |
