@@ -1,0 +1,20 @@
+{
+  "name": "roterminal",
+  "displayName": "RoTerminal",
+  "description": "Live data on every Roblox game: players now, each game's history, the games climbing fastest, Roblox's charts in 60 countries, trends and studios. Sign in to add your own games.",
+  "version": "0.2.0",
+  "logo": "./icon.png",
+  "author": {
+    "name": "Pixel Board Services Inc.",
+    "email": "support@roterminal.co"
+  },
+  "suggestedPrompts": [
+    "What Roblox games are trending right now?",
+    "How is Grow a Garden doing, and who are its rivals?",
+    "How did my game's last update do?"
+  ],
+  "homepage": "https://roterminal.co",
+  "repository": "https://github.com/elijahmadonia/roterminal-ai",
+  "license": "MIT",
+  "keywords": ["roblox", "game-analytics", "game-data", "charts", "trends", "mcp"]
+}

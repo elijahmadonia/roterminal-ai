@@ -5,13 +5,21 @@ description: Live data on every Roblox game from RoTerminal. Players right now, 
 
 # RoTerminal
 
-Run RoTerminal's command line. It answers in JSON when you run it: `{ status, data, link, next }`.
+## The connector first
+
+If RoTerminal's connector is there (the `roterminal` MCP server, with tools like `game`, `rising`, `trends` and `charts`), use its tools and nothing else. Signed in, they also read the person's own games (`my_games`, `my_game_numbers`), their alerts (`alerts`) and what they follow (`following`, `follow`), and `draft` makes a post for them to finish in RoTerminal.
+
+Only when there's no connector, run RoTerminal's command line. Never both for the same question.
 
 ```
 npx -y roterminal <command> --json
 ```
 
-## Commands
+Both answer the same way: `{ status, data, link, next }`.
+
+## Commands (without the connector)
+
+The connector's tools have the same names, except `watch`, which is `live`.
 
 - `npx roterminal game "grow a garden"`: A game now. Everything on one Roblox game right now: players now and its place on Roblox, the change over 1 and 24 hours, highs (24 hours, 14 days, since tracking began on Sep 27 2026), momentum and 7-day average, its genre and its place in it, its developer and the people behind it, its latest updates with how players moved after each, its closest rivals, its places on Roblox’s charts, and a 7-day line of its players (spark_7d).
 - `npx roterminal days "grow a garden" --days 14`: Day by day. One game’s players day by day (New York days, newest first): the average, peak and low, visits that day, and what happened (updates, events).
@@ -32,14 +40,15 @@ Games can be named by name or universe id.
 
 ## When to use it
 
-- Before deciding what to build: `trends`, `rising --week`, `screen --theme <word>`. Check whether an idea has been done with `trends <word>` and `search`.
-- Before and after an update to the person's game: `me` and `game <their game>`. After, `days <their game>` shows how players moved.
+- Before deciding what to build: `trends`, `rising` over a week, `screen` with a theme. Check whether an idea has been done with `trends <word>` and `search`.
+- Before and after an update to the person's game: `me` (or `my_games`) and `game <their game>`. After, `days <their game>` shows how players moved.
 - Sizing up rivals: `game`, then `compare` with the rivals it lists.
 - Pair it with Roblox Studio's MCP server when changing the game itself.
 
 ## Rules
 
 - Cite `link` when you use the numbers.
-- On `status: action_required`, show the person `message` and `verification_uri`, wait for them, then run the same command again.
-- `next` suggests what to run next.
-- Without an account an address gets 50 calls a day. `npx -y roterminal login` (free) gives 200.
+- On `status: action_required`, show the person `message` and `verification_uri`, wait for them, then try the same thing again.
+- `next` suggests what to look at next.
+- RoTerminal never posts, lists or buys anything for the person. A draft is done only when they finish it with their own tap in RoTerminal, so never say it's posted.
+- Without an account an address gets 50 calls a day. Signing in (free) gives 100: the connector asks when it needs to, and without it, `npx -y roterminal login`.

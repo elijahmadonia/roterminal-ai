@@ -1,7 +1,7 @@
 {
   "name": "roterminal",
-  "version": "0.1.0",
-  "description": "Live data on every Roblox game: players now, history, rising games, trends and studios.",
+  "version": "0.2.0",
+  "description": "Live data on every Roblox game: players now, history, rising games, charts, trends and studios.",
   "mcpServers": {
     "roterminal": {
       "httpUrl": "https://roterminal.co/mcp"
